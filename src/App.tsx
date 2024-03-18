@@ -5,6 +5,7 @@ import Catalog from "./pages/Catalog";
 import { ROUTES } from "./routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path={ROUTES.layout} element={<Layout />}>
             <Route path={ROUTES.cart} element={<Cart />} />
             <Route path={ROUTES.catalog} element={<Catalog />} />
+            <Route path={ROUTES.favorites} element={<Favorites />} />
           </Route>
         </Routes>
       </BrowserRouter>

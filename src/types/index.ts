@@ -7,3 +7,5 @@ export type Product = {
   discountedPrice?: number;
   category: "wire" | "wireless";
 };
+
+export type Category = Product["category"];

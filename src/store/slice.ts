@@ -16,7 +16,7 @@ const initialState: State = {
   totalSum: 0
 };
 
-export const slice = createSlice({
+const slice = createSlice({
   name: "main",
   initialState,
   reducers: {
@@ -33,8 +33,12 @@ export const slice = createSlice({
       } else {
         state.addedToCart[productIndex].amount += action.payload.amount;
       }
-
-      state.totalSum += action.payload.product.price * action.payload.amount;
+      if (action.payload.product.discountedPrice === undefined) {
+        state.totalSum += action.payload.product.price * action.payload.amount;
+      } else {
+        state.totalSum +=
+          action.payload.product.discountedPrice * action.payload.amount;
+      }
     },
     removeFromCart: (
       state,
@@ -48,8 +52,16 @@ export const slice = createSlice({
         return;
       }
 
-      state.totalSum -=
-        state.addedToCart[productIndex].product.price * action.payload.amount;
+      if (
+        state.addedToCart[productIndex].product.discountedPrice === undefined
+      ) {
+        state.totalSum -=
+          state.addedToCart[productIndex].product.price * action.payload.amount;
+      } else {
+        state.totalSum -=
+          state.addedToCart[productIndex].product.discountedPrice! *
+          action.payload.amount;
+      }
 
       if (state.addedToCart[productIndex].amount === action.payload.amount) {
         state.addedToCart = state.addedToCart.filter(
@@ -70,3 +82,12 @@ export const slice = createSlice({
     }
   }
 });
+
+export const {
+  addToCart,
+  removeFromCart,
+  addToFavorites,
+  removeFromFavorites
+} = slice.actions;
+
+export default slice;

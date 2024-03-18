@@ -1,6 +1,6 @@
 export const ROUTES = {
-  cart: "cart",
-  catalog: "catalog",
+  cart: "/cart",
+  catalog: "/catalog",
   layout: "/",
-  favorites: "favorites"
+  favorites: "/favorites"
 } as const;

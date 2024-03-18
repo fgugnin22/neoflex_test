@@ -38,7 +38,7 @@ export const products: Product[] = [
     id: 5,
     title: "GERLAX GH-04",
     price: 6527,
-    img: "./apple_airpods.png",
+    img: "./gerlax_gh04.png",
     rating: 4.7,
     category: "wireless"
   },
@@ -46,7 +46,7 @@ export const products: Product[] = [
     id: 6,
     title: "BOROFONE BO4",
     price: 7527,
-    img: "./apple_airpods.png",
+    img: "./borofone_bo4.png",
     rating: 4.7,
     category: "wireless"
   }
